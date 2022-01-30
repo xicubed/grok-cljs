@@ -17,8 +17,7 @@
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/com/lotect/gro
-   jskdasdsjflk_cljs.cljs and watch it change!"]])
+   [:h3 "Edit this in src/com/lotect/grock_cljs.cljs line 20 and watch it change!"]])
 
 (defn mount [el]
   (rdom/render [hello-world] el))
