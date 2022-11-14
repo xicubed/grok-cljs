@@ -40,7 +40,7 @@
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/com/lotect/grock_cljs.cljs line 20  aaaand watch it change! testing change..."]
+   [:h3 "Edit this in src/com/lotect/grock_cljs.cljs line 43 aaaand watch it change! testinge..."]
    [:p (str (count-of-combos [available]))]
    [:p (take (count-of-combos [available]) (combo/combinations available 2))]
    [:p (pairs)]])
