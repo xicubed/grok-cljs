@@ -2,7 +2,9 @@
   (:require
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]
-   [reagent.dom :as rdom]))
+   [reagent.dom :as rdom]
+   [clojure.math.combinatorics :as combo]))
+
 
 (println "This text is printed from src/com/lotect/grok_cljs.cljs. Go ahead and edit it and see reloading in action.")
 
@@ -14,10 +16,37 @@
 (defn get-app-element []
   (gdom/getElement "app"))
 
+(def available [\q \w \t \u \i \p \s \g \h \j \k \z \x \v \b \n \m])
+
+(defn count-of-combos [a]
+  (/ (combo/count-combinations available 2) 2))
+
+(defn pairs []
+  (first (take (count-of-combos [available]) (combo/combinations available 2))))
+
+(defn pairs-n [n]
+  (first (take-nth n ((count-of-combos [available]) (combo/combinations available 2)))))
+
+
+(defn pairs-loop []
+  (loop [i 0]
+    (when (< i (count-of-combos [available]))
+      (println i)
+      (take-nth (combo/combinations available 2))
+
+     (recur (inc i)))))
+
+
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/com/lotect/grock_cljs.cljs line 20 and watch it change! testing change to main"]])
+   [:h3 "Edit this in src/com/lotect/grock_cljs.cljs line 20  aaaand watch it change! testing change..."]
+   [:p (str (count-of-combos [available]))]
+   [:p (take (count-of-combos [available]) (combo/combinations available 2))]
+   [:p (pairs)]])
+
+
+
 
 (defn mount [el]
   (rdom/render [hello-world] el))

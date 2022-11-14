@@ -30,6 +30,18 @@ To create a production build run:
 	clojure -A:fig:min
 
 
+## some commonly used stuff
+
+```
+com.lotect.grok-cljs=> (require '[clojure.math.combinatorics :as combo])
+
+cljs.user=> (ns com.lotect.grok-cljs)
+nil
+com.lotect.grok-cljs=>
+
+(js/console.log '(pairs))
+```
+
 ## License
 
 Copyright © 2022 lotect.com
